@@ -1,6 +1,8 @@
 # project11-pizza-calculator
 Javascript web app comparing two pizza deals and using public API to check cost in different currencies
 
+![](img/pizza-calc-preview.png
+
 ## Concept
 
 Ever wondered which pizza place to order your pizza from? Which deal is better? Two 12'' pizzas for $25 or one large 25'' for 36? 
