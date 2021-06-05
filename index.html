@@ -10,10 +10,11 @@
 <div class="container">
     <div class="row ">
         <div class="row ">
-            <div class="col my-5">
+            <div class="col">
                 <!--left margin-->
+                <a class="btn btn-primary sticky-top mt-4" onClick="window.location.reload();">Reload Page</a>
             </div>
-            <div class="col-7 my-5 border border-success">
+            <div class="col-8 my-4 border border-success">
                 <div class="my-3 border border-danger">
                     <h1>Hi, welcome to the pizza calculator!</h1>
                     <h3>
@@ -23,14 +24,14 @@
                 <!--currency choice-->
                 <div class="my-3 py-3 border border-dark">
                     <div class="py-2">
-                        <label>Chose your currency</label><br>
+                        <label class="py-1">Chose your currency</label><br>
                         <select class="currencyList form-select" name="currencies" id="inputCurrency">
                             <option selected value> EUR is default</option>
                         </select>
                     </div>
-                <!--choose units -->
+                    <!--choose units -->
                     <div class="">
-                        <label>what type of units do you want to use?</label><br>
+                        <label class="py-1">What type of units do you want to use?</label><br>
                         <select class="form-select" name="unitType" id="unitType">
                             <option value> metric is default</option>
                             <option value="cm">Metric</option>
@@ -41,97 +42,101 @@
                 <div class="bd-content">
                     <form action="" id="pizzaForm">
                         <!--FIRST PIZZA DEAL-->
-                        <h3>First pizza deal</h3>
-                        <!--first pizza NUMBER-->
-                        <div class="form-group">
-                            <label>How many pizzas?</label><br/>
-                            <div class="input-group mb-3">
-                                <input class="amountOfPizzas form-control" type="number" step=".01"
-                                       id="firstPizzaAmount"
-                                       name="firstPizzaAmount" placeholder="How many pizzas?">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">#</span>
+                        <div class="my-3 border border-danger">
+                            <h3>First pizza deal</h3>
+                            <!--first pizza NUMBER-->
+                            <div class="form-group">
+                                <label class="py-1">How many pizzas?</label><br/>
+                                <div class="input-group mb-3">
+                                    <input class="amountOfPizzas form-control" type="number" step=".01"
+                                           id="firstPizzaAmount"
+                                           name="firstPizzaAmount" placeholder="How many pizzas?">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">#</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--first pizza SIZING-->
-                        <div class="form-group">
-                            <label>Pizza size?</label><br/>
-                            <input type="radio" id="diameterPizzaOne" name="pizzaOneSize" checked>
-                            <label>diameter</label>
-                            <input type="radio" id="radiusPizzaOne" name="pizzaOneSize">
-                            <label>radius</label><br>
-                            <div class="input-group mb-3">
-                                <input class="form-control" type="number" step=".01" id="firstPizzaDiameter"
-                                       name="firstPizzaDiameter" placeholder="Pizza size..."/>
-                                <div class="userUnitChoice input-group-append">
-                                    <span class="input-group-text">cm</span>
+                            <!--first pizza SIZING-->
+                            <div class="form-group">
+                                <label class="py-1">Pizza size?</label><br/>
+                                <input type="radio" id="diameterPizzaOne" name="pizzaOneSize" checked>
+                                <label class="py-1">diameter</label>
+                                <input type="radio" id="radiusPizzaOne" name="pizzaOneSize">
+                                <label class="py-1">radius</label><br>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="number" step=".01" id="firstPizzaDiameter"
+                                           name="firstPizzaDiameter" placeholder="Pizza size..."/>
+                                    <div class="userUnitChoice input-group-append">
+                                        <span class="input-group-text">cm</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--first pizza PRICING-->
-                        <div class="form-group">
-                            <label for="firstPizzaPrice">What's the order price?</label><br/>
-                            <div class="input-group mb-3">
-                                <input class="form-control" type="number" step=".01" id="firstPizzaPrice"
-                                       name="firstPizzaPrice"
-                                       placeholder="Order price..."/><br/>
-                                <div class="userOrderPrice input-group-append">
-                                    <span class="input-group-text">EUR</span>
+                            <!--first pizza PRICING-->
+                            <div class="form-group">
+                                <label class="py-1">What's the order price?</label><br/>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="number" step=".01" id="firstPizzaPrice"
+                                           name="firstPizzaPrice"
+                                           placeholder="Order price..."/><br/>
+                                    <div class="userOrderPrice input-group-append">
+                                        <span class="input-group-text">EUR</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!--SECOND PIZZA DEAL-->
-                        <h3>Second pizza deal</h3>
-                        <!--second pizza NUMBER-->
-                        <label>And here how many pizzas?</label><br/>
-                        <div class="input-group mb-3">
-                            <input class="nrOfPizzas form-control" type="number" step=".01" id="secondPizzaAmount"
-                                   name="secondPizzaAmount"
-                                   placeholder="Second deal # of pizzas..."/><br/>
-                            <div class="input-group-append">
-                                <span class="input-group-text">#</span>
+                        <div class="my-3 border border-success">
+                            <h3>Second pizza deal</h3>
+                            <!--second pizza NUMBER-->
+                            <label class="py-1">And here how many pizzas?</label><br/>
+                            <div class="input-group mb-3">
+                                <input class="nrOfPizzas form-control" type="number" step=".01" id="secondPizzaAmount"
+                                       name="secondPizzaAmount"
+                                       placeholder="Second deal # of pizzas..."/><br/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">#</span>
+                                </div>
                             </div>
-                        </div>
-                        <!--second pizza SIZING-->
-                        <label for="firstPizzaDiameter">And their size?</label><br/>
-                        <input type="radio" id="diameterPizzaTwo" name="pizzaTwoSize" checked>
-                        <label>diameter</label>
-                        <input type="radio" id="radiusPizzaTwo" name="pizzaTwoSize">
-                        <label for="radiusPizzaTwo">radius</label><br>
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="number" step=".01" id="secondPizzaDiameter"
-                                   name="secondPizzaDiameter" placeholder="Second deal pizza size..."/>
-                            <div class="userUnitChoice input-group-append">
-                                <span class="input-group-text">cm</span>
+                            <!--second pizza SIZING-->
+                            <label class="py-1">And their size?</label><br/>
+                            <input type="radio" id="diameterPizzaTwo" name="pizzaTwoSize" checked>
+                            <label class="py-1">diameter</label>
+                            <input type="radio" id="radiusPizzaTwo" name="pizzaTwoSize">
+                            <label class="py-1">radius</label><br>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="number" step=".01" id="secondPizzaDiameter"
+                                       name="secondPizzaDiameter" placeholder="Second deal pizza size..."/>
+                                <div class="userUnitChoice input-group-append">
+                                    <span class="input-group-text">cm</span>
+                                </div>
                             </div>
-                        </div>
-                        <!--second pizza PRICING-->
-                        <label for="firstPizzaPrice">And what's this deals total cost?</label><br/>
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="number" step=".01" id="secondPizzaPrice"
-                                   name="secondPizzaPrice"
-                                   placeholder="Second deal price..."/><br/>
-                            <div class="userOrderPrice input-group-append">
-                                <span class="input-group-text">EUR</span>
+                            <!--second pizza PRICING-->
+                            <label class="py-1">And what's this deals total cost?</label><br/>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="number" step=".01" id="secondPizzaPrice"
+                                       name="secondPizzaPrice"
+                                       placeholder="Second deal price..."/><br/>
+                                <div class="userOrderPrice input-group-append">
+                                    <span class="input-group-text">EUR</span>
+                                </div>
                             </div>
+                            <button type="submit" class="btn-lg btn-primary submit-form my-2">Check my deal!</button>
                         </div>
-                        <button type="submit" class="btn btn-primary submit-form">Check my deal!</button>
                     </form>
                 </div>
-                <br>
                 <div id="pizzaResponse">
                 </div>
-
                 <!--currency changaroo-->
                 <div>
-                    <label>What currency do you want to change to?</label>
-                    <select class="currencyList" name="currencies" id="outputCurrency">
-                        <option disabled selected value> select an option</option>
-                    </select><br>
+                    <form id="currencyChangeForm">
+                        <label class="py-1">Want to check how much that deal would cost in another currency?</label>
+                        <select class="currencyList form-select" name="currencies" id="outputCurrency">
+                            <option> select a second currency</option>
+                        </select>
+                        <button type="submit" class="btn-lg btn-primary submit-currency-check my-3">Calculate</button>
+                    </form>
                 </div>
-
             </div>
             <div class="col my-5">
                 <!--right margin-->
@@ -139,6 +144,12 @@
         </div>
     </div>
 </div>
+<!-- Footer -->
+<footer class="font-small border border-dark">
+    <div class="text-center py-3">© 2021 Copyright:
+        <a href="https://szczepanskimichal.work/" target="_blank">Mike Szczepanski</a>
+    </div>
+</footer>
 <script src="js/app.js"></script>
 </body>
 </html>

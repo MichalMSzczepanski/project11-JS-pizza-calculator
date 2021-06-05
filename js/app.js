@@ -114,18 +114,19 @@ pizzaForm.addEventListener("submit", function (event) {
 
 // currency list section and xchange rates section
 // open-source API documentation: https://www.currencyconverterapi.com/docs
-let apiKEy = "c55ec618255a86ae9959";
+// let apiKey = "c55ec618255a86ae9959";
+let apiKey = "1786db1f496903ce52d4";
 
 // generate currency list for users to choose from
 let selectors = document.querySelectorAll(".currencyList");
 selectors.forEach(function (element) {
-    fetch("https://free.currconv.com" + "/api/v7/currencies?apiKey=" + apiKEy)
+    fetch("https://free.currconv.com" + "/api/v7/currencies?apiKey=" + apiKey)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             let rawCurrencyArray = Object.values(data.results);
             rawCurrencyArray.forEach(function (currency) {
-                console.log(currency.id)
+                // test log for json contents validation
+                // console.log(currency.id)
                 let option = document.createElement("option");
                 option.value = currency.id;
                 option.innerText = currency.currencyName + " - " + currency.id;
@@ -138,8 +139,10 @@ selectors.forEach(function (element) {
 let userOutputCurrencyChoice;
 let currencyComparisonResult = document.createElement("div");
 let outputCurrency = document.querySelector("#outputCurrency");
-outputCurrency.addEventListener("change", function (event) {
-    userOutputCurrencyChoice = this.value;
+let currencyChangeForm = document.querySelector("#currencyChangeForm");
+currencyChangeForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    userOutputCurrencyChoice = outputCurrency.value;
     if (firstPizzaResult === undefined && seconPizzaResult === undefined) {
         currencyComparisonResult.innerText = "fill out the form properly mate!"
         currencyComparisonResult.classList.add("alert", "alert-danger");
@@ -147,15 +150,16 @@ outputCurrency.addEventListener("change", function (event) {
     } else {
         let inputToOutPut = userCurrencyChoice + "_" + userOutputCurrencyChoice;
         let outputToInput = userOutputCurrencyChoice + "_" + userCurrencyChoice;
-        console.log("user chose comparing currency to: " + userOutputCurrencyChoice);
+        console.log("user chose comparing currency: " + userOutputCurrencyChoice);
         // fetch exchange rate
         fetch('https://free.currconv.com' + '/api/v7/convert?q=' + userCurrencyChoice + '_'
             + userOutputCurrencyChoice + ',' + userOutputCurrencyChoice + '_' + userCurrencyChoice
-            + '&compact=ultra&apiKey=' + apiKEy)
+            + '&compact=ultra&apiKey=' + apiKey)
             .then(response => response.json())
             .then(data => {
                 console.log("input to output print out: " + data[inputToOutPut]);
                 let exchangeRate = data[inputToOutPut];
+                console.log(exchangeRate);
                 currencyComparisonResult.innerText = "You pizza deal that costs: "
                     + (finalPizzaPrice / 100).toFixed(2)
                     + " " + userCurrencyChoice + " would cost "
@@ -166,8 +170,7 @@ outputCurrency.addEventListener("change", function (event) {
                 outputCurrency.parentElement.appendChild(currencyComparisonResult);
                 // console.log(data[outputToInput]);
             });
-    }
-    ;
+    };
 });
 
 
