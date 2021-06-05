@@ -33,7 +33,7 @@ let firstPizzaResult;
 let secondPizzaSize;
 let secondPizzaPrice;
 let secondPizzaAmount;
-let seconPizzaResult;
+let secondPizzaResult;
 let finalPizzaPrice;
 let pizzaForm = document.querySelector("#pizzaForm");
 pizzaForm.addEventListener("submit", function (event) {
@@ -149,7 +149,9 @@ let currencyChangeForm = document.querySelector("#currencyChangeForm");
 currencyChangeForm.addEventListener("submit", function (event) {
     event.preventDefault();
     userOutputCurrencyChoice = outputCurrency.value;
-    if (firstPizzaResult === undefined || seconPizzaResult === undefined) {
+    console.log(firstPizzaResult);
+    console.log(secondPizzaResult)
+    if (firstPizzaResult === undefined || secondPizzaResult === undefined) {
         currencyComparisonResult.innerText = "Didn't fill out the form up there, did ya?"
         currencyComparisonResult.classList.add("alert", "alert-danger");
         outputCurrency.parentElement.appendChild(currencyComparisonResult);
