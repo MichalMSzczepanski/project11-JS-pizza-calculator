@@ -5,24 +5,40 @@
     <title>pizza calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container">
-    <div class="row ">
+<nav class="font-small bg-light text-dark">
+    <div class="row">
+        <div class="col">
+            <div></div>
+        </div>
+        <div class="col-8 py-3 text-center">
+            The Pizza Calculator comes to save you time & cash!
+            <i class="fas fa-pizza-slice"></i>
+        </div>
+        <div class="col"></div>
+    </div>
+</nav>
+<div class="container back">
+    <div class="row">
         <div class="row ">
             <div class="col">
                 <!--left margin-->
-                <a class="btn btn-primary sticky-top mt-4" onClick="window.location.reload();">Reload Page</a>
+                <a class="btn btn-primary sticky-top mt-5" onClick="window.location.reload();">Reload Page</a>
             </div>
-            <div class="col-8 my-4 border border-success">
-                <div class="my-3 border border-danger">
+            <div class="col-8 my-4">
+                <div class="my-3">
                     <h1>Hi, welcome to the pizza calculator!</h1>
                     <h3>
                         Let's compare the pizza deals you've got!
                     </h3>
                 </div>
                 <!--currency choice-->
-                <div class="my-3 py-3 border border-dark">
+                <div class="my-3 py-3">
+                    <h4>Step 1/4 (optional): set currency & unit system</h4>
                     <div class="py-2">
                         <label class="py-1">Chose your currency</label><br>
                         <select class="currencyList form-select" name="currencies" id="inputCurrency">
@@ -39,11 +55,16 @@
                         </select>
                     </div>
                 </div>
+
+                <br>
+                <hr>
+                <br>
+
                 <div class="bd-content">
                     <form action="" id="pizzaForm">
                         <!--FIRST PIZZA DEAL-->
-                        <div class="my-3 border border-danger">
-                            <h3>First pizza deal</h3>
+                        <div class="my-3">
+                            <h4> Step 2/4: first pizza deal</h4>
                             <!--first pizza NUMBER-->
                             <div class="form-group">
                                 <label class="py-1">How many pizzas?</label><br/>
@@ -85,9 +106,13 @@
                             </div>
                         </div>
 
+                        <br>
+                        <hr>
+                        <br>
+
                         <!--SECOND PIZZA DEAL-->
-                        <div class="my-3 border border-success">
-                            <h3>Second pizza deal</h3>
+                        <div class="my-3">
+                            <h4>Step 3/4: second pizza deal</h4>
                             <!--second pizza NUMBER-->
                             <label class="py-1">And here how many pizzas?</label><br/>
                             <div class="input-group mb-3">
@@ -127,8 +152,14 @@
                 </div>
                 <div id="pizzaResponse">
                 </div>
+
+                <br>
+                <hr>
+                <br>
+
                 <!--currency changaroo-->
-                <div>
+                <div class="my-3">
+                    <h4>Step 4/4 (optional): currency change</h4>
                     <form id="currencyChangeForm">
                         <label class="py-1">Want to check how much that deal would cost in another currency?</label>
                         <select class="currencyList form-select" name="currencies" id="outputCurrency">
@@ -145,7 +176,7 @@
     </div>
 </div>
 <!-- Footer -->
-<footer class="font-small border border-dark">
+<footer class="font-small bg-light text-dark">
     <div class="text-center py-3">© 2021 Copyright:
         <a href="https://szczepanskimichal.work/" target="_blank">Mike Szczepanski</a>
     </div>

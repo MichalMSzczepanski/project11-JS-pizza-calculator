@@ -84,7 +84,7 @@ pizzaForm.addEventListener("submit", function (event) {
 
     if (isNaN(firstPizzaResult) || firstPizzaAmount === "" || firstPizzaSize === 0 || firstPizzaPrice === 0
         || isNaN(secondPizzaResult) || secondPizzaAmount === "" || secondPizzaSize === 0 || secondPizzaPrice === 0) {
-        resultMainMessage.innerText = "Some fields were left empty - try again";
+        resultMainMessage.innerText = "Some fields were left empty - give it another go!";
         resultMainMessage.classList.add("alert", "alert-danger");
         resultParagraph.appendChild(resultMainMessage)
     } else {
@@ -130,8 +130,14 @@ selectors.forEach(function (element) {
                 let option = document.createElement("option");
                 option.value = currency.id;
                 option.innerText = currency.currencyName + " - " + currency.id;
-                element.appendChild(option);
+                element.appendChild(option)
             });
+        })
+        .catch( err => {
+            err.text()
+                .then( errorMessage => {
+                    alert(errorMessage)
+                });
         });
 });
 
@@ -143,8 +149,8 @@ let currencyChangeForm = document.querySelector("#currencyChangeForm");
 currencyChangeForm.addEventListener("submit", function (event) {
     event.preventDefault();
     userOutputCurrencyChoice = outputCurrency.value;
-    if (firstPizzaResult === undefined && seconPizzaResult === undefined) {
-        currencyComparisonResult.innerText = "fill out the form properly mate!"
+    if (firstPizzaResult === undefined || seconPizzaResult === undefined) {
+        currencyComparisonResult.innerText = "Didn't fill out the form up there, did ya?"
         currencyComparisonResult.classList.add("alert", "alert-danger");
         outputCurrency.parentElement.appendChild(currencyComparisonResult);
     } else {
@@ -169,7 +175,13 @@ currencyChangeForm.addEventListener("submit", function (event) {
                 currencyComparisonResult.classList.add("alert", "alert-warning");
                 outputCurrency.parentElement.appendChild(currencyComparisonResult);
                 // console.log(data[outputToInput]);
-            });
+            })
+            .catch( err => {
+                err.text()
+                    .then( errorMessage => {
+                    alert(errorMessage)
+                })
+            })
     };
 });
 
