@@ -1,7 +1,7 @@
 # project11-pizza-calculator
 Javascript web app comparing two pizza deals and using public API to check cost in different currencies
 
-![](img/pizza-calc-preview.png
+![](img/pizza-calc-preview.png)
 
 ## Concept
 
@@ -14,7 +14,7 @@ And if you want to, play around with a few currencies - might come in handy if y
 > 
 
 ## Technical aspects
-- pure Javascript
+- Javascript (ES6)
 - Bootstrap 5
-- marginal CSS
+- CSS (marginal)
 - fetching currency list & exchange rates from public API https://free.currencyconverterapi.com/ 
