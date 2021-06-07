@@ -1,5 +1,5 @@
 # project11-pizza-calculator
-Javascript web app comparing two pizza deals and using public API to check cost in different currencies
+JavaScript web app comparing two pizza deals and using public API to check cost in different currencies
 
 ![](img/pizza-calc-preview.png)
 
