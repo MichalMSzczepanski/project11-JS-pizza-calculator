@@ -63,13 +63,6 @@ pizzaForm.addEventListener("submit", function (event) {
   secondPizzaResult =
     secondPizzaPrice /
     (secondPizzaAmount * (3.14 * Math.pow(secondPizzaSize, 2)));
-  console.log("first pizza result: " + firstPizzaResult);
-  console.log("first pizza price: " + firstPizzaPrice);
-  console.log("first pizza amount: ") + firstPizzaAmount;
-  console.log("second pizza result: " + secondPizzaResult);
-  console.log("second pizza price: " + secondPizzaPrice);
-  console.log("second pizza amount: " + secondPizzaAmount);
-
   // check for previous results and clear if present
   let resultParagraph = document.querySelector("#pizzaResponse");
   if (
@@ -104,10 +97,14 @@ pizzaForm.addEventListener("submit", function (event) {
     resultMainMessage.classList.add("alert", "alert-danger");
     resultParagraph.appendChild(resultMainMessage);
   } else {
-    if (firstPizzaResult > secondPizzaResult) {
-      let difference = (firstPizzaResult / secondPizzaResult - 1) * 100;
+    if (firstPizzaResult < secondPizzaResult) {
+      console.log("first pizza is the better deal: ");
+      console.log("first pizza result: " + firstPizzaResult);
+      console.log("first pizza price: " + firstPizzaPrice);
+      console.log("first pizza amount: ") + firstPizzaAmount;
+      let difference = (secondPizzaResult / firstPizzaResult - 1) * 100;
       resultMainMessage.innerText =
-        "Deal #2 gets you " +
+        "Deal #1 gets you " +
         difference.toFixed(2) +
         "% more pizza for your money!";
       resultParagraph.appendChild(resultMainMessage);
@@ -123,11 +120,15 @@ pizzaForm.addEventListener("submit", function (event) {
         " per square " +
         userUnitChoice;
       resultParagraph.appendChild(resultSliceCost);
-      finalPizzaPrice = secondPizzaPrice;
+      finalPizzaPrice = firstPizzaPrice;
     } else {
-      let difference = (secondPizzaResult / firstPizzaResult - 1) * 100;
+      console.log("second pizza is the better deal: ");
+      console.log("second pizza result: " + secondPizzaResult);
+      console.log("second pizza price: " + secondPizzaPrice);
+      console.log("second pizza amount: " + secondPizzaAmount);
+      let difference = (firstPizzaResult / secondPizzaResult - 1) * 100;
       resultMainMessage.innerText =
-        "Deal #1 gets you " +
+        "Deal #2 gets you " +
         difference.toFixed(2) +
         "% more pizza for your money!";
       resultParagraph.appendChild(resultMainMessage);
@@ -143,7 +144,7 @@ pizzaForm.addEventListener("submit", function (event) {
         " per square " +
         userUnitChoice;
       resultParagraph.appendChild(resultSliceCost);
-      finalPizzaPrice = firstPizzaPrice;
+      finalPizzaPrice = secondPizzaPrice;
     }
   }
 });
