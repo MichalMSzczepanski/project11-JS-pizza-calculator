@@ -150,8 +150,8 @@ pizzaForm.addEventListener("submit", function (event) {
 
 // currency list section and xchange rates section
 // open-source API documentation: https://www.currencyconverterapi.com/docs
-let apiKey = "c55ec618255a86ae9959";
-// let apiKey = "1786db1f496903ce52d4";
+// let apiKey = "c55ec618255a86ae9959";
+let apiKey = "1786db1f496903ce52d4";
 
 // generate currency list for users to choose from
 let selectors = document.querySelectorAll(".currencyList");
@@ -168,6 +168,11 @@ selectors.forEach(function (element) {
         option.innerText = currency.currencyName + " - " + currency.id;
         element.appendChild(option);
       });
+    })
+    .catch((error) => {
+      alert(
+        "There's an issue with fetching currency data - please come back in some time. Access refreshes every hour. Calculating your pizza deal still work though! Just can't change play arround with the currencies"
+      );
     });
   // .catch( err => {
   //     err.text()
