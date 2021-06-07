@@ -16,5 +16,4 @@ And if you want to, play around with a few currencies - might come in handy if y
 ## Technical aspects
 - Javascript (ES6)
 - Bootstrap 5
-- CSS (marginal)
 - fetching currency list & exchange rates from public API https://free.currencyconverterapi.com/ 
