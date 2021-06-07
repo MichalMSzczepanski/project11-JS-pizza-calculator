@@ -113,7 +113,7 @@ pizzaForm.addEventListener("submit", function (event) {
       resultParagraph.appendChild(resultMainMessage);
       resultSliceCost.innerText =
         "One slice costs " +
-        (firstPizzaPrice / 100 / 8).toFixed(2) +
+        (firstPizzaPrice / 100 / (8 * firstPizzaAmount)).toFixed(2) +
         " " +
         userCurrencyChoice +
         " set at " +
@@ -133,7 +133,7 @@ pizzaForm.addEventListener("submit", function (event) {
       resultParagraph.appendChild(resultMainMessage);
       resultSliceCost.innerText =
         "One slice costs " +
-        (secondPizzaPrice / 100 / 8).toFixed(2) +
+        (secondPizzaPrice / 100 / (8 * secondPizzaAmount)).toFixed(2) +
         " " +
         userCurrencyChoice +
         " set at " +
