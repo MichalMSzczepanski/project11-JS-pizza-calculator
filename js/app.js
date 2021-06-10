@@ -179,7 +179,7 @@ selectors.forEach(function (element) {
       rawCurrencyArray.sort((a, b) => a.id.localeCompare(b.id));
       rawCurrencyArray.forEach(function (currency) {
         // test log for json contents validation
-        // console.log(currency.id);
+        console.log(currency.id);
         if (currency.id !== "USD" && currency.id !== "PLN") {
           let option = document.createElement("option");
           option.value = currency.id;
@@ -194,12 +194,6 @@ selectors.forEach(function (element) {
         "There's an issue with fetching currency data - please come back in some time. Access refreshes every hour. Calculating your pizza deal still works though! Just can't change play arround with the currencies"
       );
     });
-  // .catch( err => {
-  //     err.text()
-  //         .then( errorMessage => {
-  //             alert(errorMessage)
-  //         });
-  // });
 });
 
 // check exchange rate of better pizza deal to chosen currency
@@ -207,6 +201,7 @@ let userOutputCurrencyChoice;
 let currencyComparisonResult = document.createElement("div");
 let outputCurrency = document.querySelector("#outputCurrency");
 let currencyChangeForm = document.querySelector("#currencyChangeForm");
+let calcCurrencyResponse = document.querySelector("#calcCurrencyResponse");
 currencyChangeForm.addEventListener("submit", function (event) {
   event.preventDefault();
   userOutputCurrencyChoice = outputCurrency.value;
@@ -220,11 +215,11 @@ currencyChangeForm.addEventListener("submit", function (event) {
   ) {
     currencyComparisonResult.innerText =
       "Didn't fill out the form up there, did ya?";
-    currencyComparisonResult.classList.add("alert", "alert-danger");
-    outputCurrency.parentElement.appendChild(currencyComparisonResult);
-    console.log("flag 1");
+    calcCurrencyResponse.classList.add("alert", "alert-danger");
+    calcCurrencyResponse.appendChild(currencyComparisonResult);
+    // console.log("flag 1");
   } else {
-    console.log("flag 2");
+    // console.log("flag 2");
     let inputToOutPut = userCurrencyChoice + "_" + userOutputCurrencyChoice;
     let outputToInput = userOutputCurrencyChoice + "_" + userCurrencyChoice;
     console.log("user chose comparing currency: " + userOutputCurrencyChoice);
@@ -263,15 +258,9 @@ currencyChangeForm.addEventListener("submit", function (event) {
           " to " +
           userOutputCurrencyChoice +
           ") ";
-        currencyComparisonResult.classList.add("alert", "alert-warning");
-        outputCurrency.parentElement.appendChild(currencyComparisonResult);
+        calcCurrencyResponse.classList.add("alert", "alert-warning");
+        calcCurrencyResponse.appendChild(currencyComparisonResult);
         // console.log(data[outputToInput]);
       });
-    // .catch( err => {
-    //     err.text()
-    //         .then( errorMessage => {
-    //         alert(errorMessage)
-    //     })
-    // })
   }
 });
