@@ -160,19 +160,38 @@ selectors.forEach(function (element) {
   fetch("https://free.currconv.com" + "/api/v7/currencies?apiKey=" + apiKey)
     .then((response) => response.json())
     .then((data) => {
+      //add few common currencies first
+      let optionPLN = document.createElement("option");
+      optionPLN.value = "PLN";
+      optionPLN.innerText = "PLN - Polish Zloty";
+      element.appendChild(optionPLN);
+      let optionUSD = document.createElement("option");
+      optionUSD.value = "USD";
+      optionUSD.innerText = "USD - United States Dollar";
+      element.appendChild(optionUSD);
+      let optionSeparator = document.createElement("option");
+      optionSeparator.disabled = true;
+      optionSeparator.value = "---";
+      optionSeparator.innerText = "-----------------";
+      element.appendChild(optionSeparator);
+      // add rest of currencies
       let rawCurrencyArray = Object.values(data.results);
+      rawCurrencyArray.sort((a, b) => a.id.localeCompare(b.id));
       rawCurrencyArray.forEach(function (currency) {
         // test log for json contents validation
-        // console.log(currency.id)
-        let option = document.createElement("option");
-        option.value = currency.id;
-        option.innerText = currency.currencyName + " - " + currency.id;
-        element.appendChild(option);
+        // console.log(currency.id);
+        if (currency.id !== "USD" && currency.id !== "PLN") {
+          let option = document.createElement("option");
+          option.value = currency.id;
+          option.innerText = currency.id + " - " + currency.currencyName;
+          element.appendChild(option);
+        }
       });
     })
     .catch((error) => {
+      console.log(error);
       alert(
-        "There's an issue with fetching currency data - please come back in some time. Access refreshes every hour. Calculating your pizza deal still work though! Just can't change play arround with the currencies"
+        "There's an issue with fetching currency data - please come back in some time. Access refreshes every hour. Calculating your pizza deal still works though! Just can't change play arround with the currencies"
       );
     });
   // .catch( err => {
