@@ -10,7 +10,7 @@ Wonder no more, mix two deals as you please and make a calculated (literally) ch
 
 And if you want to, play around with a few currencies - might come in handy if you're abroad.
 
-> app available live at https://szczepanskimichal.work/project11-pizza-calculator/index.html
+> app available live at hhttp://michalmszczepanski.atthost24.pl/pizzaapp/
 > 
 
 ## Technical aspects
